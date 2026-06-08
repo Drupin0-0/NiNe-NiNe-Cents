@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from djago.http import HttpResponse
+from django.http import HttpResponse
 
 # Create your views here.
 def product_reister(request):
