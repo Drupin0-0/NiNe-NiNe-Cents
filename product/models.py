@@ -11,4 +11,4 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2, blank=False, null=False)
 
     def __str__(self):
-        return super().__str__()
+        return self.name
