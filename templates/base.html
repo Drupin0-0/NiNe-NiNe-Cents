@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nine-nine-cents</title>
     
-    <!-- Estilização CSS Moderna -->
     <style>
-        /* Paleta de Cores Base e Reset */
         :root {
-            --bg-color: #0f172a;       /* Azul escuro profundo */
-            --card-bg: #1e293b;        /* Azul ardósia para os blocos */
-            --text-main: #f8fafc;      /* Branco suave */
-            --text-muted: #94a3b8;     /* Cinza azulado para textos secundários */
-            --accent: #6366f1;         /* Roxo/Índigo moderno */
-            --post-color: #10b981;     /* Verde esmeralda para o método POST */
+            --bg-color: #111111;
+            --card-bg: #1a1a1a;
+            --card-border: #2a2a2a;
+            --text-main: #f0f0f0;
+            --text-muted: #888888;
+            --accent: #a855f7;
+            --accent-dark: #7c3aed;
+            --accent-light: #c084fc;
+            --post-color: #10b981;
             --post-bg: rgba(16, 185, 129, 0.1);
+            --header-bg: #1a0a2e;
+            --header-border: #3b1f6e;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
         }
 
         body {
@@ -26,63 +33,105 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
-        /* Container Centralizado */
         .api-container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 40px auto;
-            padding: 20px;
+            padding: 24px;
         }
 
-        /* Cabeçalho */
         .api-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--card-bg);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            background-color: var(--header-bg);
+            border: 1px solid var(--header-border);
+            border-left: 4px solid var(--accent);
+            padding: 28px 36px;
+            margin-bottom: 32px;
+            border-radius: 12px;
         }
 
         .api-header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            font-weight: 700;
             margin: 0;
-            background: linear-gradient(to right, #4f46e5, #06b6d4);
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .title-main {
+            background: linear-gradient(to right, #c084fc, #e879f9);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        .title-price {
+            background: linear-gradient(to right, #10b981, #34d399);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
         .badge-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             background-color: var(--post-bg);
             color: var(--post-color);
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: bold;
             border: 1px solid var(--post-color);
         }
 
-        /* Cards de Conteúdo */
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--post-color);
+            border-radius: 50%;
+            animation: pulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.7); }
+        }
+
         .api-card {
             background-color: var(--card-bg);
-            padding: 24px;
+            padding: 28px;
             border-radius: 12px;
             margin-bottom: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--card-border);
+            border-left: 4px solid var(--accent);
+            transition: border-color 0.2s;
+        }
+
+        .api-card:hover {
+            border-color: var(--accent);
+            border-left-color: var(--accent-light);
         }
 
         .api-card h2 {
             font-size: 1.4rem;
             margin-top: 0;
-            margin-bottom: 16px;
-            color: var(--accent);
+            margin-bottom: 12px;
+            color: var(--accent-light);
+            letter-spacing: -0.3px;
         }
 
         .api-card p {
             color: var(--text-muted);
-            line-height: 1.6;
+            line-height: 1.7;
+            margin: 0 0 16px;
         }
 
-        /* Lista do Grupo */
         .group-list {
             list-style: none;
             padding: 0;
@@ -90,60 +139,108 @@
         }
 
         .group-list li {
-            padding: 10px 0;
+            padding: 12px 0;
             color: var(--text-muted);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--card-border);
+            font-size: 1rem;
         }
 
         .group-list li:last-child {
             border-bottom: none;
         }
 
-        /* Bloco do Endpoint */
         .endpoint-block {
-            background-color: rgba(15, 23, 42, 0.6);
+            background-color: #0d0d0d;
             border-radius: 8px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
         }
 
         .endpoint-header {
             display: flex;
             align-items: center;
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: #161616;
             padding: 12px 16px;
             gap: 16px;
+            border-bottom: 1px solid var(--card-border);
         }
 
         .method-post {
             background-color: var(--post-color);
             color: #fff;
             font-weight: bold;
-            padding: 4px 8px;
+            padding: 4px 10px;
             border-radius: 4px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
         }
 
         .endpoint-url {
             color: var(--text-main);
             font-weight: 600;
+            font-family: monospace;
+            font-size: 0.95rem;
         }
 
         .endpoint-details {
             padding: 16px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         code {
-            background-color: #0f172a;
-            padding: 4px 8px;
+            background-color: #0d0d0d;
+            padding: 3px 8px;
             border-radius: 4px;
-            color: #e2e8f0;
+            color: var(--accent-light);
             font-family: monospace;
+            font-size: 0.88rem;
+            border: 1px solid var(--card-border);
         }
     </style>
 </head>
 <body>
-    {% block content %}
-    {% endblock %}
+    <div class="api-container">
+
+        <div class="api-header">
+            <h1>
+                <span class="title-main">nine-nine-cents</span>
+                <span class="title-price">99$</span>
+            </h1>
+            <span class="badge-status">
+                <span class="pulse-dot"></span>
+                Online
+            </span>
+        </div>
+
+        <div class="api-card">
+            <h2>Endpoint de teste</h2>
+            <p>Esse é um card de exemplo para visualizar o layout.</p>
+            <div class="endpoint-block">
+                <div class="endpoint-header">
+                    <span class="method-post">POST</span>
+                    <span class="endpoint-url">/api/v1/example</span>
+                </div>
+                <div class="endpoint-details">
+                    Parâmetros: <code>api_key</code>, <code>payload</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="api-card">
+            <h2>Integrantes do Grupo</h2>
+            <ul class="group-list">
+                <li>Ryan Calpacci</li>
+                <li>Rhyan Roza</li>
+                <li>Eduardo Lins</li>
+                <li>Gustavo Vanzeli</li>
+                <li>Gustavo</li>
+                <li>Rafael</li>
+                <li>Kaique Costa</li>
+            </ul>
+        </div>
+
+    </div>
 </body>
 </html>
