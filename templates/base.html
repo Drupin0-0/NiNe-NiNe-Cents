@@ -201,46 +201,7 @@
     </style>
 </head>
 <body>
-    <div class="api-container">
-
-        <div class="api-header">
-            <h1>
-                <span class="title-main">nine-nine-cents</span>
-                <span class="title-price">99$</span>
-            </h1>
-            <span class="badge-status">
-                <span class="pulse-dot"></span>
-                Online
-            </span>
-        </div>
-
-        <div class="api-card">
-            <h2>Endpoint de teste</h2>
-            <p>Esse é um card de exemplo para visualizar o layout.</p>
-            <div class="endpoint-block">
-                <div class="endpoint-header">
-                    <span class="method-post">POST</span>
-                    <span class="endpoint-url">/api/v1/example</span>
-                </div>
-                <div class="endpoint-details">
-                    Parâmetros: <code>api_key</code>, <code>payload</code>
-                </div>
-            </div>
-        </div>
-
-        <div class="api-card">
-            <h2>Integrantes do Grupo</h2>
-            <ul class="group-list">
-                <li>Ryan Calpacci</li>
-                <li>Rhyan Roza</li>
-                <li>Eduardo Lins</li>
-                <li>Gustavo Vanzeli</li>
-                <li>Gustavo</li>
-                <li>Rafael</li>
-                <li>Kaique Costa</li>
-            </ul>
-        </div>
-
-    </div>
+    {% block content %}
+    {% endblock %}
 </body>
 </html>
