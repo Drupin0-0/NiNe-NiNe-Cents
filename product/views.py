@@ -47,7 +47,6 @@ def product_register(request):
                 'price': float(p.price) # Decimal precisa virar float ou string no JSON
             })
             
-        # safe=False é necessário quando enviamos uma LISTA via JsonResponse
         return JsonResponse(products_list, safe=False, status=200)
 
     return JsonResponse({'error': 'Método não permitido'}, status=405)
