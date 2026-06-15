@@ -5,9 +5,10 @@
 
     <div class="api-header">
         <h1>
-            <span class="title-main">nine-nine-cents</span>
-            <span class="title-price">99$</span>
+            <span class="title-main">Ninety-Nine-Cents</span>
+            <span class="title-price">99¢</span>
         </h1>
+
         <span class="badge-status">
             <span class="pulse-dot"></span>
             Online
@@ -16,35 +17,122 @@
 
     <section class="api-card">
         <h2>Descrição do Projeto</h2>
-        <p>Essa API permite realizar o controle completo e automatizado do estoque de produtos.</p>
-    </section>
-
-    <section class="api-card">
-        <h2>Grupo Desenvolvedor</h2>
-        <ul class="group-list">
-            <li>Ryan Calpacci</li>
-            <li>Rhyan Roza</li>
-            <li>Eduardo Lins</li>
-            <li>Gustavo Vanzeli</li>
-            <li>Gustavo</li>
-            <li>Rafael</li>
-            <li>Kaique Costa</li>
-        </ul>
+        <p>
+            Esta API permite realizar o controle completo e automatizado do estoque de produtos.
+        </p>
     </section>
 
     <section class="api-card">
         <h2>Endpoints do Usuário</h2>
+
         <div class="endpoint-block">
             <div class="endpoint-header">
                 <span class="method-post">POST</span>
-                <code class="endpoint-url">/userprofile</code>
+                <code class="endpoint-url">/userprofile/register/</code>
             </div>
+
             <div class="endpoint-details">
-                <p><strong>URL Completa:</strong> <code>http://127.0.0</code></p>
-                <p><strong>Descrição:</strong> Realiza o cadastro de novos perfis de usuários no sistema de estoque.</p>
+                <p>
+                    <strong>URL Completa:</strong>
+                    <code>http://127.0.0.1:8000/userprofile/register/</code>
+                </p>
+
+                <p>
+                    <strong>Descrição:</strong>
+                    Realiza o cadastro de novos perfis de usuários no sistema de estoque.
+                </p>
+
+                <p><strong>Exemplo de requisição:</strong></p>
+
+                <pre><code>{
+    "user": "joao.silva",
+    "birthdate": "1990-05-15"
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="endpoint-block">
+            <div class="endpoint-header">
+                <span class="method-get">GET</span>
+                <code class="endpoint-url">/userprofile/register/</code>
+            </div>
+
+            <div class="endpoint-details">
+                <p>
+                    <strong>URL Completa:</strong>
+                    <code>http://127.0.0.1:8000/userprofile/register/</code>
+                </p>
+
+                <p>
+                    <strong>Descrição:</strong>
+                    Lista todos os perfis de usuários cadastrados no sistema de estoque.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="api-card">
+        <h2>Endpoints do Produto</h2>
+
+        <div class="endpoint-block">
+            <div class="endpoint-header">
+                <span class="method-post">POST</span>
+                <code class="endpoint-url">/product/register/</code>
+            </div>
+
+            <div class="endpoint-details">
+                <p>
+                    <strong>URL Completa:</strong>
+                    <code>http://127.0.0.1:8000/product/register/</code>
+                </p>
+
+                <p>
+                    <strong>Descrição:</strong>
+                    Realiza o cadastro de novos produtos no sistema de estoque.
+                </p>
+
+                <p><strong>Exemplo de requisição:</strong></p>
+
+                <pre><code>{
+    "user": "joao.silva",
+    "birthdate": "1990-05-15"
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="endpoint-block">
+            <div class="endpoint-header">
+                <span class="method-get">GET</span>
+                <code class="endpoint-url">/product/register/</code>
+            </div>
+
+            <div class="endpoint-details">
+                <p>
+                    <strong>URL Completa:</strong>
+                    <code>http://127.0.0.1:8000/product/register/</code>
+                </p>
+
+                <p>
+                    <strong>Descrição:</strong>
+                    Lista as informações de todos os produtos registrados.
+                </p>
             </div>
         </div>
     </section>
 
 </div>
+
+    <section class="api-card">
+        <h2>Grupo Desenvolvedor</h2>
+
+        <ul class="group-list">
+            <li>Ryan Calpacci</li>
+            <li>Rhyan Rodrigo</li>
+            <li>Eduardo Lins</li>
+            <li>Gustavo Vanzeli</li>
+            <li>Gustavo Santos</li>
+            <li>Rafael Monteiro</li>
+            <li>Kaique Costa</li>
+        </ul>
+    </section>
 {% endblock %}
