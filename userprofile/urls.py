@@ -3,4 +3,4 @@ from userprofile.views import userprofile_view
 urlpatterns = [
     path('', userprofile_view, name='userprofile.view'),
     path('register/', userprofile_view, name='userprofile.view')
-]
+]   
