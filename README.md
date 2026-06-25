@@ -1,6 +1,6 @@
 # 📦 API de Controle de Estoque
 
-Uma API REST desenvolvida com Django para gerenciamento de estoque, permitindo o cadastro de usuários e o controle de produtos armazenados.
+Uma API  desenvolvida com Django para gerenciamento de estoque, permitindo o cadastro de usuários e o controle de produtos armazenados.
 
 ## 🚀 Funcionalidades
 
